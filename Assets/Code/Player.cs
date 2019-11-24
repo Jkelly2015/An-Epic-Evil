@@ -20,9 +20,12 @@ public class Player : MonoBehaviour
     {
         float oldMD = movementDirection;
         movementDirection = Input.GetAxisRaw("Horizontal") * movementSpeed;
-        if(Mathf.Sign(oldMD) != Mathf.Sign(movementDirection))
+        if (movementDirection>0)
         {
-            sprite.flipX = !sprite.flipX;
+            sprite.flipX = false;
+        } else if(movementDirection < 0)
+        {
+            sprite.flipX = true;
         }
     }
 
